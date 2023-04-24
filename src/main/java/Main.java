@@ -1,11 +1,10 @@
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 
-import javax.print.Doc;
-import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,23 +18,23 @@ public class Main {
 //            throw new RuntimeException(e);
 //        }
 //        try {
-//            // Загрузка HTML-страницы
+//            // Р—Р°РіСЂСѓР·РєР° HTML-СЃС‚СЂР°РЅРёС†С‹
 //            Document document = Jsoup.connect("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/").get();
 //
-//            // Получение заголовка страницы (тег <title>)
+//            // РџРѕР»СѓС‡РµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° СЃС‚СЂР°РЅРёС†С‹ (С‚РµРі <title>)
 ////            String title = document.title();
 ////            System.out.println("Title: " + title);
 //
-//            // Извлечение всех ссылок (теги <a>)
+//            // РР·РІР»РµС‡РµРЅРёРµ РІСЃРµС… СЃСЃС‹Р»РѕРє (С‚РµРіРё <a>)
 ////            Elements links = document.select("a[href]");
 ////
-////            // Вывод найденных ссылок
+////            // Р’С‹РІРѕРґ РЅР°Р№РґРµРЅРЅС‹С… СЃСЃС‹Р»РѕРє
 ////            System.out.println("\nLinks:");
 ////            for (Element link : links) {
 ////                System.out.println(link.attr("href"));
 ////            }
 //
-//            // Извлечение всех элементов с определенным классом
+//            // РР·РІР»РµС‡РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
 ////            Connection.Response response = Jsoup.connect("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/").followRedirects(true).execute();
 ////            int statusCode = response.statusCode();
 ////            System.out.println("Status code: " + statusCode);
@@ -44,7 +43,7 @@ public class Main {
 //            Elements elementsWithClass3 = document.getElementsByClass("bx_catalog_item_title").select("a[href]");
 //
 //
-//            // Вывод найденных элементов с определенным классом
+//            // Р’С‹РІРѕРґ РЅР°Р№РґРµРЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
 //            System.out.println("\nElements with class 'some-class':");
 //            for(int i = 0; i<elementsWithClass.size();i++){
 //                Element element = elementsWithClass.get(i);
@@ -77,13 +76,13 @@ public class Main {
 //        }
 
 //        try {
-//            // Загрузка HTML-страницы
+//            // Р—Р°РіСЂСѓР·РєР° HTML-СЃС‚СЂР°РЅРёС†С‹
 //            Document document = Jsoup.connect("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/").header("Content-Type", "text/html; charset=utf-8").get();
-//            // Извлечение всех элементов с определенным классом
+//            // РР·РІР»РµС‡РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
 //            Elements prices = document.getElementsByClass("bx_price");
 //            Elements names = document.getElementsByClass("bx_catalog_item_title_text");
 //            Elements links = document.getElementsByClass("bx_catalog_item_title").select("a[href]");
-//            // Вывод найденных элементов с определенным классом
+//            // Р’С‹РІРѕРґ РЅР°Р№РґРµРЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
 //            for(int i = 0; i<prices.size();i++){
 //                Element element = prices.get(i);
 //                Element name = names.get(i);
@@ -91,16 +90,16 @@ public class Main {
 //                String price = element.text();
 //                System.out.println(name.text());
 //                System.out.println(link.attr("href"));
-//                System.out.println(price.substring(element.text().indexOf("Цена в интернет-магазине")+24,price.indexOf(price.charAt(price.length()-1),element.text().indexOf("Цена в интернет-магазине")+24)));
+//                System.out.println(price.substring(element.text().indexOf("Р¦РµРЅР° РІ РёРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅРµ")+24,price.indexOf(price.charAt(price.length()-1),element.text().indexOf("Р¦РµРЅР° РІ РёРЅС‚РµСЂРЅРµС‚-РјР°РіР°Р·РёРЅРµ")+24)));
 //            }
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
 //        try {
-//            // Загрузка HTML-страницы
+//            // Р—Р°РіСЂСѓР·РєР° HTML-СЃС‚СЂР°РЅРёС†С‹
 //            Document document = Jsoup.connect("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/").header("Content-Type", "text/html; charset=utf-8").get();
-//            // Извлечение всех элементов с определенным классом
-//            // Вывод найденных элементов с определенным классом
+//            // РР·РІР»РµС‡РµРЅРёРµ РІСЃРµС… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
+//            // Р’С‹РІРѕРґ РЅР°Р№РґРµРЅРЅС‹С… СЌР»РµРјРµРЅС‚РѕРІ СЃ РѕРїСЂРµРґРµР»РµРЅРЅС‹Рј РєР»Р°СЃСЃРѕРј
 //            Elements links = document.getElementsByClass("bx-pagination-container row");
 //            Integer countPage = Integer.valueOf(links.text().substring(links.text().length()-2).trim());
 //            System.out.println(countPage);
@@ -108,18 +107,18 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-//        Мечта
-        try {
-            // Загрузка HTML-страницы
-            Thread.sleep(5000L);
-            String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
-            Connection connection = Jsoup.connect("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/").header("User-Agent", userAgent);
-            Document document = connection.get();
+//        РњРµС‡С‚Р°
+//        try {
+            // Р—Р°РіСЂСѓР·РєР° HTML-СЃС‚СЂР°РЅРёС†С‹
+//            Thread.sleep(5000L);
+//            String userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
+//            Connection connection = Jsoup.connect("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/").header("User-Agent", userAgent);
+//            Document document = connection.get();
             //  System.out.println(document.text());
             //    Elements nameProduct = document.getElementsByClass("catalog-product__name ui-link ui-link_black");
-            Thread.sleep(5000L);
-            Elements price = document.getElementsByClass("product-buy__price");
-            System.out.println(price.text());
+//            Thread.sleep(5000L);
+//            Elements price = document.getElementsByClass("product-buy__price");
+//            System.out.println(price.text());
             //    Elements link = document.getElementsByClass("catalog-product__name ui-link ui-link_black");
             //  Elements pages = document.getElementsByClass("pagination-widget__page");
 
@@ -136,10 +135,37 @@ public class Main {
 //            for (Element element : pages){
 //                System.out.println(element.text());
 //            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
+        System.setProperty("webdriver.chrome.driver","E:\\DriverSpring\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+
+        driver.get("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/");
+
+//        https://www.dns-shop.kz/catalog/17a8a01d16404e77/smartfony/
+//        https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/
+//        https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/?p=2
+//        List<WebElement> price = driver.findElements(By.className("product-buy__price"));
+//        List<WebElement> nameProduct = driver.findElements(By.className("catalog-product__name"));
+//        List<WebElement> linkProduct = driver.findElements(By.className("catalog-product__image-link"));
+//        List<WebElement> numberPage = driver.findElements(By.className("pagination-widget__page"));
+//        for (WebElement webElement : price){
+//            System.out.println(webElement.getText());
+//        }
+//        for (WebElement webElement : nameProduct){
+//            System.out.println(webElement.getText());
+//        }
+//        for (WebElement webElement : linkProduct){
+//           System.out.println(webElement.getAttribute("href"));
+//       }
+//        for (WebElement webElement : numberPage){
+//            System.out.println(webElement.getAttribute("data-page-number"));
+//        }
+
     }
+
 }
