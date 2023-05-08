@@ -1,8 +1,13 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.select.Elements;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -141,10 +146,12 @@ public class Main {
 //            throw new RuntimeException(e);
 //        }
 
-        System.setProperty("webdriver.chrome.driver","E:\\DriverSpring\\chromedriver.exe");
-        WebDriver driver = new ChromeDriver();
-
-        driver.get("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/");
+//        System.setProperty("webdriver.chrome.driver","E:\\DriverSpring\\chromedriver.exe");
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/");
+//        List<WebElement> numberPage = driver.findElements(By.className("pagination-widget__page"));
+//        int countPage = Integer.parseInt(numberPage.get(numberPage.size()-1).getAttribute("data-page-number"));
+//        System.out.println(countPage);
 
 //        https://www.dns-shop.kz/catalog/17a8a01d16404e77/smartfony/
 //        https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/
@@ -166,6 +173,112 @@ public class Main {
 //            System.out.println(webElement.getAttribute("data-page-number"));
 //        }
 
+        // Мечта
+
+//        System.setProperty("webdriver.chrome.driver","E:\\DriverSpring\\chromedriver.exe");
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://www.mechta.kz/section/noutbuki/?setcity=s1");
+//        List<WebElement> prices = driver.findElements(By.className("text-bold"));
+//        for (WebElement price : prices){
+//            System.out.println(price.getText());
+//        }
+//        List<WebElement> nameProducts = driver.findElements(By.className("q-pt-md"));// -4
+//        for (WebElement name : nameProducts){
+//            System.out.println(name.getText());
+//        }
+//        List<WebElement> linkProducts2 = driver.findElements(By.cssSelector("[style*='text-decoration: none;']"));
+//        List<String> linkProducts = new ArrayList<>();
+//        for (WebElement link : linkProducts2){
+//            if(link.getAttribute("href") != null){
+//                if(link.getAttribute("href").contains("/product/noutbuk")){ //name
+//                    linkProducts.add(link.getAttribute("href"));
+//                }
+//            }
+//        }
+//        for (String name : linkProducts){
+//            System.out.println(name);
+//        }
+//        List<WebElement> numberPage = driver.findElements(By.className("block"));
+//        for (WebElement element : numberPage){
+//            System.out.println(element.getText());
+//        }
+
+//        Document document  = null;
+//        try {
+//            document = Jsoup.connect("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/").header("Content-Type", "text/html; charset=utf-8").get();
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//        Elements page = document.getElementsByClass("lazyloaded");
+//        System.out.println(page.text());
+
+//        List<WebElement> imgs = driver.findElements(By.cssSelector("[style*='margin-top: 20px; max-width: 260px; max-height: 260px;']"));
+//        for (WebElement element : imgs){
+//            System.out.println(element.getAttribute("src"));
+
+//        System.setProperty("webdriver.chrome.driver", "E:\\DriverSpring\\chromedriver.exe");
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/");
+//        List<WebElement> imgs = driver.findElements(By.tagName("source"));
+//        for(WebElement element : imgs){
+//            System.out.println(element.getAttribute("data-srcset"));
+//        }
+
+//        System.setProperty("webdriver.chrome.driver", "E:\\DriverSpring\\chromedriver.exe");
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://shop.kz/noutbuki/filter/almaty-is-v_nalichii-or-ojidaem-or-dostavim/apply/");
+//        List<WebElement> prices = driver.findElements(By.className("old_price"));
+//        for(WebElement element : prices){
+//            System.out.println(element.getText());
+//        }
+//        List<WebElement> nameProducts = driver.findElements(By.className("bx_catalog_item_title_text"));
+//        for(WebElement element : nameProducts){
+//            System.out.println(element.getText());
+//        }
+//        List<WebElement> linkProducts = driver.findElements(By.className("bx_catalog_item_images"));
+//        for(WebElement element : linkProducts){
+//            System.out.println(element.getAttribute("href"));
+//        }
+
+//        WebElement imgs = driver.findElement(By.className("lazyloaded"));
+//        System.out.println(imgs.getAttribute("src"));
+
+//        List<WebElement> imgs = driver.findElements(By.tagName("span"));
+//        for(WebElement element : imgs){
+//            System.out.println(element.getText());
+//        }
+
+//        System.setProperty("webdriver.chrome.driver", "E:\\DriverSpring\\chromedriver.exe");
+//        WebDriver driver = new ChromeDriver();
+//        driver.get("https://www.dns-shop.kz/catalog/17a892f816404e77/noutbuki/");
+//        List<WebElement> imgs = driver.findElements(By.tagName("source"));
+//        List<WebElement> nameProducts = driver.findElements(By.className("catalog-product__name"));
+//        int a = 0;
+//        for (int i = 0;i<nameProducts.size();i++) {
+//            System.out.println(nameProducts.get(i).getText());
+//            String img = imgs.get(a).getAttribute("data-srcset");
+//            System.out.println(img);
+//            a+=2;
+//        }
+
+        //технодом
+
+        System.setProperty("webdriver.chrome.driver", "E:\\DriverSpring\\chromedriver.exe");
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.technodom.kz/catalog/noutbuki-i-komp-jutery/noutbuki-i-aksessuary/noutbuki");
+//        List<WebElement> names = driver.findElements(By.className("ProductCardV_--loading__2C9Aq"));
+//        for(WebElement element : names){
+//            System.out.println(element.getText());
+//        }
+//        List<WebElement> prices = driver.findElements(By.className("ProductCardPrices_prices-info__price__y8O_n"));
+//        for(WebElement element : prices){
+//            System.out.println(element.getText());
+//        }
+
+        List<WebElement> prices = driver.findElements(By.className("ProductCardCarousel_carousel__img__YFwg4"));
+        for(WebElement element : prices){
+            System.out.println(element.getAttribute("src"));
+        }
     }
 
 }
